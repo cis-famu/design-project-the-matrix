@@ -18,9 +18,13 @@ Impact of project:	Reducing food waste
 
 Project Team
 	Name	Department	Telephone	E-mail
+ 
 Project Manager Milestone 1:	Malachi White, 	CIS	(503)-901-7336	malachi1.white@famu.edu
+
 Project Manager Milestone 2:	Olivia Adoghe	CIS	(754)-777-2257	olivia1.adoghe@famu.edu
+
 Project Manager Milestone 3:	Santana Martin	CIS	(321)-460-7758	santana1.martin@famu.edu
+
 Project Manager Milestone 4:  Malachi White 				
 				
 				
