@@ -128,6 +128,7 @@ Total Cost:                        5 Months 3 Days        $237,884        $26,00
 
 
 ## Team Contract
+https://github.com/malachiwhi/The-Matrix-/blob/main/Team%20Contract.pdf
 
 
 ## References
