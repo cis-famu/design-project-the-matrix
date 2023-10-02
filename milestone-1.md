@@ -93,9 +93,9 @@ Threats:
 
 ## Budget, Scope, & Time estimates:
 
-1.Project Concept and Design          Time (hr.)     Cost/hr	 Total 	      Non-Labor(Cost) 	 Start Date 	Due Dates
+1.Project Concept and Design          Time (hr.)     Cost/hr	 Total 	    Non-Labor(Cost) 	Start Date   Due Dates
 
-1.1 - Project Charter                 48             $30 	   $1,440.00	    $500.00             4-Sep	      1-Oct
+1.1 - Project Charter                 48             $30     $1,440.00	    $500.00             4-Sep	    1-Oct
 1.2 - Agenda and Meeting Times        48             $30     $1,440.00      $500.00             4-Sep       1-Oct
 1.3- Budget Planning                  360            $120    $43,200.00     $2,000.00           4-Sep       1-Oct
 1.4 - Research                        360            $120    $43,200.00     $2,000.00           4-Sep       1-Oct 
