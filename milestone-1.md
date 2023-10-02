@@ -7,7 +7,7 @@
 4. [Team Contract](#team-contract)
 5. [References](#references)
 
-6. ## Project Charter:
+## Project Charter:
 
 PROJECT CHARTER            
 General Project Information
