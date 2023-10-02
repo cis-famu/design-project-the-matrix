@@ -9,15 +9,14 @@
 
 6. ## Project Charter:
 
-7. PROJECT CHARTER            
-	
-1. General Project Information
+PROJECT CHARTER            
+General Project Information
 Project Name:Prep Easy AI
 Executive Sponsors: Vannessa Coote 
 Department Sponsor: Vannessa Coote
 Impact of project:	Reducing food waste
 
-3. Project Team
+Project Team
 	Name	Department	Telephone	E-mail
 Project Manager Milestone 1:	Malachi White, 	CIS	(503)-901-7336	malachi1.white@famu.edu
 Project Manager Milestone 2:	Olivia Adoghe	CIS	(754)-777-2257	olivia1.adoghe@famu.edu
@@ -25,12 +24,11 @@ Project Manager Milestone 3:	Santana Martin	CIS	(321)-460-7758	santana1.martin@f
 Project Manager Milestone 4:  Malachi White 				
 				
 				
-4. Stakeholders (e.g., those with a significant interest in or who will be significantly affected by this project)
+ Stakeholders (e.g., those with a significant interest in or who will be significantly affected by this project)
 Florida A&M University, Vannessa Coote, Malachi White, Olivia Adoghe, Santana Martin, Non-profit orginizations,
 Food Banks, Chruches, Florida Department of Health, USA.gov, Snap
 
-
-5. Project Scope Statement
+ Project Scope Statement
 Project Purpose / Business Justification Describe the business need this project addresses
 Give people the chance to effectilvy save food and money by creating new and pre excisting recipes through AI with the food that they already have. This allternative food recipe generater will help elimate with food waste by at least 12% through cost saving methods and reduce food cost by 40%. 
 Objectives (in business terms) Describe the measurable outcomes of the project, e.g., reduce cost by xxxx or increase quality to yyyy
@@ -61,11 +59,11 @@ Some of the constraints on the project that we may come across are the ability t
 External Dependencies Will project success depend on coordination of efforts between the project team and one or more other individuals or groups? Has everyone involved agreed to this interaction?
 Everyone in the project is in alignment with what need to be done to be succesful in the project. There are no outside dependecies for the group that anyone is relying on. 
 
-5. Communication Strategy (specify how the project manager will communicate to the Executive Sponsor, Project Team members and Stakeholders, e.g., frequency of status reports, frequency of Project Team meetings, etc.
+Communication Strategy (specify how the project manager will communicate to the Executive Sponsor, Project Team members and Stakeholders, e.g., frequency of status reports, frequency of Project Team meetings, etc.
 Zoom, FaceTime, Microsoft Teams and Canvas. Team meeting’s are held twice a week with a weekly sprint review that is every Monday to see what we need to accomplish for the week, with status report will be done every 2 weeks for status updates and issues coming along with the project.
 
 
-6. Sign-off
+ Sign-off
 	Name	Signature	Date (MM/DD/YYYY)
 Executive Sponsor	Vannessa Coote		
 Department Sponsor	Vannessa Coote 		
@@ -77,12 +75,15 @@ Strengths:
 1. AI generated recipes can save users time by providing quick and efficient meal planning.
 2. This AI can allow personal recommendation based on user preference, dietary restrictions, and ingredient availability. 
 
+Weaknesses: 
 1. Developing and maintaining the AI algorithms for recipe generation may require significant technical expertise and resources.
 2. The AI may limit culinary creativity when replicating unique and innovating recipes
 
+Opportunity: 
 1. Addressing the global issue of food waste presents an opportunity for significant impact and recognition.
 2. AI technology is currently trending and can provide an advantage towards technological advancement and give us potential collaboration opportunities.
 
+Threats: 
 1. The potential risk of financial challenges such as underfunding
 2. Prep Easy AI could face competition from other food/tech start-ups or companies that are already in the market
 
