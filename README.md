@@ -23,7 +23,7 @@ In this milestone, we are formalizing our project idea by creating our project c
 [Milestone 1 Details]()
 
 ## Milestone 2
-This Mile stone covers the meeting minutes, Work Break Down Structure, Gantt Chart and NetWork Diagarm, Detailed Requirements Document, Fully Dressed-Use Cases, Use Case Diagram, Research on other systems
+This milestone covers the meeting minutes, Work Break Down Structure, Gantt Chart and NetWork Diagarm, Detailed Requirements Document, Fully Dressed-Use Cases, Use Case Diagram, Research on other systems
 and, API Descriptions. 
 [Milestone 2 Details]()
 
