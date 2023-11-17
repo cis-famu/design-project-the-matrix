@@ -11,6 +11,7 @@ CIS-FAMU Capstone project group with the Mobile Application Easy Prep AI
     - [Milestone 3](#milestone-3)
     - [Milestone 4](#milestone-4)
 5. [Presentation](#presentation)
+6. [Interactive Wireframe](#Wireframe)
 
 # About the Project
 
@@ -37,3 +38,7 @@ In this milestone, we are formalizing our project idea by creating our project c
 
 # Presentation
 Here is a copy of our final project presentation. This includes out project poster and pre-recorded video.
+
+# Wireframe
+![wireframeinfo](https://github.com/cis-famu/design-project-the-matrix/assets/111886958/74a22ee5-6d68-4382-9fa2-e664c8c53803)
+
