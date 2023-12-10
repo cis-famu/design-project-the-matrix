@@ -21,7 +21,7 @@ In this section we summarize each milestone and link to a more detail document o
 
 ## Milestone 1
 In this milestone, we are formalizing our project idea by creating our project charter and conducting a SWOT analysis. We also create out high-level budget and time estimates.
-[Milestone 1 Details]()
+[Milestone 1 Details](https://github.com/cis-famu/design-project-the-matrix/blob/main/milestone-1.md)
 
 ## Milestone 2
 This milestone covers the meeting minutes, Work Break Down Structure, Gantt Chart and NetWork Diagarm, Detailed Requirements Document, Fully Dressed-Use Cases, Use Case Diagram, Research on other systems
