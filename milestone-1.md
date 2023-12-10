@@ -91,7 +91,7 @@ Threats:
 1. The potential risk of financial challenges such as underfunding
 2. Prep Easy AI could face competition from other food/tech start-ups or companies that are already in the market
 
-## Budget, Scope, & Time estimates:
+## Budget, Scope, & Time estimates !click code to see break down better:
 
 1.Project Concept and Design          Time (hr.)     Cost/hr	 Total 	    Non-Labor(Cost) 	Start Date   Due Dates
 
