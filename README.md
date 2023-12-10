@@ -26,7 +26,7 @@ In this milestone, we are formalizing our project idea by creating our project c
 ## Milestone 2
 This milestone covers the meeting minutes, Work Break Down Structure, Gantt Chart and NetWork Diagarm, Detailed Requirements Document, Fully Dressed-Use Cases, Use Case Diagram, Research on other systems
 and, API Descriptions. 
-[Milestone 2 Details]()
+[Milestone 2 Details](https://github.com/cis-famu/design-project-the-matrix/blob/main/milestone-2.md)
 
 ## Milestone 3
 In this milestone, we have moved into the designing phase of our project. We be showcasing our DFD, FRQ, a style guide, and our interactive wireframe.
