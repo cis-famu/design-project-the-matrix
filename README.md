@@ -15,6 +15,7 @@ CIS-FAMU Capstone project group with the Mobile Application Easy Prep AI
 
 # About the Project
 ![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/aa501514-f074-44ab-97b9-b072af58bc5e)
+
 Easy Prep AI is your go-to recipe assistant, crafting personalized recipes from your pantry staples. Share your customized meals and tailor dietary preferences for health needs effortlessly. 
 
 Easy Prep AI - Eating Healthy should be hard!!
@@ -36,7 +37,7 @@ In this milestone, we have moved into the designing phase of our project. We be 
 [Milestone 3 Details](https://github.com/cis-famu/design-project-the-matrix/blob/main/milestone-3.md)
 
 ## Milestone 4
-In this milestone, we are formalizing our project idea by creating our project charter and conducting a SWOT analysis. We also create out high-level budget and time estimates.
+In this milestone, we are formalizing our project idea by creating our Risk Register, Collection Relationship Diagram, Data Dictionary Document, Lessons-Learned, Poster Prsentation, Pre-recorded prsentation 
 [Milestone 4 Details](https://github.com/cis-famu/design-project-the-matrix/blob/main/milestone-4.md)
 
 # Presentation
