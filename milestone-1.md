@@ -129,33 +129,7 @@ Phase 3 Total Cost: $45,724.00
    
 Phase 4 Total Cost:  $9,900.00
 
-Total Cost:                        5 Months 3 Days        $237,884        $26,000
-1.Project Concept and Design 		Time (hr.) 	Cost/hr	Total 	Non-Labor Cost 	Start Date 	Due Dates 
-1.1 - Project Charter 		48	$30 	$1,440.00	$500.00	4-Sep	1-Oct
-1.2 - Agenda and Meeting Times 		48	$30 	$1,440.00	$500.00	4-Sep	1-Oct
-1.3- Budget Planning 		360	$120 	$43,200.00	$2,000.00	4-Sep	1-Oct
-1.4 - Research 		360	$120 	$43,200.00	$2,000.00	4-Sep	1-Oct
-Phase 1 Total Cost: 				$89,280.00			
-2. Planning and Devlopment 							
-2.1- UI and UX Design 		192	$35 	$6,720.00	$1,500.00	22-Oct	19-Nov
-2.2 - Database Desgin		240	$45 	$10,800.00	$2,500.00	1-Oct	22-Oct
-2.3 - ML/AI Desgin 		288	$150 	$43,200.00	$5,000.00	1-Oct	22-Oct
-2.4 - Security Design 		240	$50 	$12,000.00	$2,000.00	1-Oct	22-Oct
-2.5- API Desgin 		240	$50 	$12,000.00	$1,500.00	1-Oct	22-Oct
-2.7 - Use Case 		192	$25 	$4,800.00	$1,000.00	1-Oct	22-Oct
-2.8 - WBS  		168	$20 	$3,360.00	$1,000.00	1-Oct	22-Oct
-Phase 2 Total Cost: 				$92,880.00			
-							
-3.Project Launch and Testing 							
-3.1-Marketing 		480	$50 	$24,000.00	$3,500.00	22-Oct	19-Nov
-3.2-Survey and User-Testing 		720	$30 	$21,600.00	$3,000.00	22-Oct	19-Nov
-3.3 - App Store deploymennt (Hybrid Application both Andriod and IOS Users)		2	$124 	$124.00	$0.00	22-Oct	10-Dec
-Phase 3 Total Cost: 				$45,724.00			
-4. Project Evaluation 							
-4.1 - QM Process 		155	$30 	$4,650.00	$400.00	10-Dec	10-Dec
-4.2- Maintenance & Support 		150	$35 	$5,250.00	$400.00	10-Dec	10-Dec
-Phase 4 Total Cost: 							
-Total Cost: 		5 Months and 3 days 		$237,884 	$26,000.00		
+Total Cost:                        5 Months 3 Days        $237,884        $26,000	
 
 
 
