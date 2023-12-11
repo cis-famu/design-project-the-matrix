@@ -13,6 +13,8 @@
 
 
 ## Collection Relationship Diagram 
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/fcc33cd9-82b5-4ddc-8a09-7604b44b03c9)
+
 
 ## Lessons Learned Report 
 
