@@ -53,5 +53,7 @@ In our teamâ€™s opinion, we exceeded our expectations for the project; we didnâ€
 
 
 ## Poster Presentation 
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/c738a3d1-f9d1-49cb-85e5-bfce933c83f3)
+
 
 ## Recorded Presentation 
