@@ -14,7 +14,10 @@ CIS-FAMU Capstone project group with the Mobile Application Easy Prep AI
 6. [Interactive Wireframe](#Wireframe)
 
 # About the Project
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/aa501514-f074-44ab-97b9-b072af58bc5e)
+Easy Prep AI is your go-to recipe assistant, crafting personalized recipes from your pantry staples. Share your customized meals and tailor dietary preferences for health needs effortlessly. 
 
+Easy Prep AI - Eating Healthy should be hard!!
 
 # Milestones
 In this section we summarize each milestone and link to a more detail document of artifacts for each.
