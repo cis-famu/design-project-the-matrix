@@ -238,6 +238,16 @@ Basic Flow:
 ## Use Case Diagram 
 
 ## Research on other systems
+Easy Prep is a food application relying heavily on AI and ML. To be able to create good recipes and safe food for anyone who uses the app. However, to understand how the system works and the design that the app aims to accomplish, several other applications make Easy Prep more feasible. “Hey Siri,” the famous Apple personal assistant, uses AI and ML technology to recognize the voice of the users and determine if the user’s voice was detected based on a score in the algorithm. If the score is high enough, “Hey Siri” will speak. This specific function has nothing to do with Easy Prep initially, but the underlying functionality does. The “Hey Siri” feature uses a scoring system to rate whether the user who spoke clearly and correctly said those specific words and scored it through its algorithm. Easy Prep will need the same functionality to give users accurate recipes so that they can create something tasty, and edible based on their food needs and diet. 
+
+This leads perfectly to the next system that gives Easy Prep more clarity, the Tesla self-driving car system. This system focuses more on the ML aspect of it, where the car needs lots of data to make accurate and safe decisions for drivers. Tesla uses large data models to predict and enhance user driving experience. Because of the data the car receives, they can make split-second decisions based on the sensors and monitors in the vehicle. Easy Prep will need similar match-making ML algorithms to match foods correctly based on the food users scan into the application. With these two systems running in Easy Prep, it can score the food the user puts into the application. The application data sets and algorithms can compare the food to a wide range of images and recipes to accurately produce what foods the user can make based on what they scanned in. 
+
+Reference: 
+Hey Siri: An on-device DNN-powered voice trigger for Apple’s personal assistant. Apple Machine Learning Research. (n.d.). https://machinelearning.apple.com/research/hey-siri 
+Team, T. A. (2022, May 27). Tesla’s self driving algorithm explained. https://towardsai.net/p/l/teslas-self-driving-algorithm-explained 
+Shires, A. (2020, September 28). Building ML-driven applications. Medium. https://medium.com/fullstackai/building-ml-driven-applications-4e83cb95c0c 
+
+
 
 ## API Descriptions
 
