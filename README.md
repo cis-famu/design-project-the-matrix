@@ -34,7 +34,7 @@ In this milestone, we have moved into the designing phase of our project. We be 
 
 ## Milestone 4
 In this milestone, we are formalizing our project idea by creating our project charter and conducting a SWOT analysis. We also create out high-level budget and time estimates.
-[Milestone 4 Details]()
+[Milestone 4 Details](https://github.com/cis-famu/design-project-the-matrix/blob/main/milestone-4.md)
 
 # Presentation
 Here is a copy of our final project presentation. This includes out project poster and pre-recorded video.
