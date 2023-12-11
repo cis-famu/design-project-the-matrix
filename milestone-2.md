@@ -234,6 +234,8 @@ Basic Flow:
 
 
 ## Use Case Diagram 
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/420e1888-53ac-4852-8228-e202472fafdc)
+
 
 ## Research on other systems
 Easy Prep is a food application relying heavily on AI and ML. To be able to create good recipes and safe food for anyone who uses the app. However, to understand how the system works and the design that the app aims to accomplish, several other applications make Easy Prep more feasible. “Hey Siri,” the famous Apple personal assistant, uses AI and ML technology to recognize the voice of the users and determine if the user’s voice was detected based on a score in the algorithm. If the score is high enough, “Hey Siri” will speak. This specific function has nothing to do with Easy Prep initially, but the underlying functionality does. The “Hey Siri” feature uses a scoring system to rate whether the user who spoke clearly and correctly said those specific words and scored it through its algorithm. Easy Prep will need the same functionality to give users accurate recipes so that they can create something tasty, and edible based on their food needs and diet. 
