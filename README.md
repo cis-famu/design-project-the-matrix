@@ -30,7 +30,7 @@ and, API Descriptions.
 
 ## Milestone 3
 In this milestone, we have moved into the designing phase of our project. We be showcasing our DFD, FRQ, a style guide, and our interactive wireframe.
-[Milestone 3 Details]()
+[Milestone 3 Details](https://github.com/cis-famu/design-project-the-matrix/blob/main/milestone-3.md)
 
 ## Milestone 4
 In this milestone, we are formalizing our project idea by creating our project charter and conducting a SWOT analysis. We also create out high-level budget and time estimates.
