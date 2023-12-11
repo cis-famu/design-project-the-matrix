@@ -252,4 +252,19 @@ Shires, A. (2020, September 28). Building ML-driven applications. Medium. https:
 ## API Descriptions
 
 
+Dalle API – Image 
+The Dalle Api is the API that was created from Open AI. It is an image generator API that makes images based on text prompts. But for Easy Prep AI, we would pass in the scanned meal information to the text prompt, allowing pictures of the food that can be created to show the generated food that could be made.
+Link: https://openai.com/research/dall-e
+
+Spoonacular API – Recipes 
+It is a food recipe API that can search different recipes, nutrients, ingredients, etc., for food you can create. This API will be used for recipes in the backend of our application, and it will help ensure that the food that users are scanning is edible.
+Link: https://spoonacular.com/food-api
+
+Open Food Facts API- Food Information 
+This is the world's most extensive open food API, with contributions since 2012. It has a comprehensive database of all listed grocery store foods worldwide. Having this API will allow Easy Prep access to almost any food worldwide. It will also be able to give each breakdown of the food if asked for it by the user. Such as Calorie amount, and other nutritional information that may be important to the user. 
+Link: https://world.openfoodfacts.org/data
+
+
+
+
 
