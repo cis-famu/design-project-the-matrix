@@ -10,42 +10,8 @@
 
 
 
-## WBS & Gantt ChartWORK BREAKDOWN STRUCTURE WITH GANTT CHART TEMPLATE																																																														
-PROJECT TITLE	PrepEasyAI																																																													
-PROJECT MANAGER	Malachi W, Olivia A, Santana W																																																													
-COMPANY NAME	The Matrix Solutions Inc.																																																													
-DATE	10.22.2023						PHASE ONE															PHASE TWO															PHASE THREE															PHASE FOUR										
-																																																														
-WBS NUMBER	TASK TITLE	TASK OWNER	START DATE	DUE DATE	DURATION	% of TASK	WEEK 1					WEEK 2					WEEK 3					WEEK 4					WEEK 5					WEEK 6					WEEK 7					WEEK 8					WEEK 9					WEEK 10					WEEK 11					
-						COMPLETE	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	M	T	W	R	F	
-1	Project Conception & Initiation																																																													
-1.1	Project Charter	Malachi W	9/1/2023	10/1/2023	30	100%																																																								
-1.1.1	Project Charter Revisions	Olivia A.	9/29/2023	10/1/2023	2	100%																																																								
-1.2	Research	Santana M.	9/1/2023	10/15/2023	44	70%																																																								
-1.3	Stakeholders	Olivia A.	9/1/2023	12/10/2023	100	90%																																																								
-1.4	Guidelines	Malachi W &Santana M	9/1/2023	10/1/2023	30	90%																																																								
-1.5	Project Initiation	Malachi W	9/1/2023	9/2/2023	1	50%																																																								
-2	Project Definition & Planning																																																													
-2.1	Scope & Goal Setting	Santana M.	9/1/2023	9/15/2023	14	20%																																																								
-2.2	Budget	Olivia A.	9/1/2023	9/16/2023	15	70%																																																								
-2.3	Communication Plan	Olivia A.	9/1/2023	9/5/2023	4	100%																																																								
-2.4	Risk Management	Malachi W	9/1/2023	12/10/2023	100	40%																																																								
-3	Project Launch & Execution																																																													
-3.1	User Execution/Full Stack 	Olivia A.	9/1/2023	10/1/2023	30	10%																																																								
-3.2	APIs/ Back End	Malachi W	9/1/2023	10/1/2023	30	10%																																																								
-3.2.1	Monitoring	Malachi W	9/1/2023	12/10/2023	100	10%																																																								
-3.2.2	Security/ Front End	Santana M.	9/1/2023	10/1/2023	30	10%																																																								
-3.3	Project Updates	Olivia A.	9/1/2023	12/10/2023	100	0%																																																								
-3.3.1	Authentication	Santana M.	9/1/2023	12/10/2023	100	10%																																																								
-4	Project Performance / Monitoring																																																													
-4.1	Project Objectives	Olivia A.	9/1/2023	10/1/2023	30	30%																																																								
-4.2	Quality Deliverables	Olivia A.	9/1/2023	12/10/2023	100	0%																																																								
-4.3	Effort & Cost Tracking	Malachi W	9/1/2023	12/10/2023	100	10%																																																								
-4.4	Project Performance	Santana M.	9/1/2023	12/10/2023	100	0%																																																								
+## WBS & Gantt ChartWORK BREAKDOWN STRUCTURE WITH GANTT CHART TEMPLATE														
 ![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/7e2eec65-acb9-4fcf-bf27-2b34efe59e09)
-
-
-
 
 ## Requirements 
 Functional Requirements:
