@@ -1,5 +1,11 @@
 
 ## Data Flow Diagram 
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/6ef36342-46ec-4932-83df-562cb7bbb80f)
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/b99f5828-b291-437b-b540-6fd046081359)
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/008f9f0b-aedb-41e7-ae8c-a87d81db54b1)
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/501221a6-e084-4b21-80c6-3e7b7b0153bd)
+![image](https://github.com/cis-famu/design-project-the-matrix/assets/96313489/e2aa6aa8-8fda-4388-b193-d535871546f8)
+
 
 ## Request for Quote 
 EASY PREP AI
