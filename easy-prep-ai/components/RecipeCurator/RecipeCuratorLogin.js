@@ -10,20 +10,6 @@ const App = () => {
     console.log('Login attempted with email:', email, 'password:', password);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/api/users');
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   
   return (
     <View style={styles.container}>
