@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity,Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import { useNavigation} from '@react-navigation/native';
 
 const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
+  const [username, setUsername] = useState('');
+  const navigation = useNavigation();  
 
-  const handleLogin = async () => {
+  const handleSignUp = async () => {
     // Implement your login logic here (e.g., API call, validation)
     try {
-      const response = await axios.post('http://localhost:8080/api/login', {
+      const response = await axios.post('http://localhost:8080/api/signup', {
         email,
         password,
+        username
       });
   
       // Handle the response from the server
@@ -21,42 +23,44 @@ const App = () => {
   
       // If the login is successful, navigate to the SearchRecipes screen
       if (response.data.success) {
-        navigation.navigate('SearchRecipes');
+        navigation.navigate('Main1');
       }
     } catch (error) {
       // Handle any errors
       console.error(error);
     }
-
-    console.log('Login attempted with email:', email, 'password:', password);
+    console.log('Login attempted with email:', email, 'password:', password, 'username', username);
   };
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('./images/background.jpeg')}
-        style={styles.logo}
-      />
-      <Text style={styles.title}>Login</Text>
-      <View style={styles.formContainer}>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            onChangeText={setEmail}
-            value={email}
-            width={300}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            onChangeText={setPassword}
-            value={password}
-            secureTextEntry
-            width={300}
-          />
-          <RoundedButton title="Login"  onPress={() => navigation.navigate('Main1')} />
-        </View>
+      <Image source={require('./images/background.jpeg')}
+      resizeMode='cover'
+      style={styles.logo}
+      ></Image>
+      <Text style={styles.title}>Sign-Up</Text>
+      <View style={styles.form}>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          onChangeText={setEmail}
+          value={email}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          onChangeText={setUsername}
+          value={username}
+          secureTextEntry
+        />
+        <RoundedButton title="Sign-Up"   onPress={() => navigation.navigate('Main1')}  />
       </View>
     </View>
   );
@@ -69,6 +73,7 @@ const RoundedButton = ({ title, onPress }) => {
     </TouchableOpacity>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -89,21 +94,14 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    marginTop: 230,
+    marginTop: 200,
   },
   title: {
     fontSize: 24,
     marginBottom: 20,
   },
-  formContainer: {
-    width: '100%',
-    paddingHorizontal: 20,
-    justifyContent: 'center',
-  },
   form: {
-    width: '100%',
-    paddingHorizontal:20, 
-    justifyContent:'center', 
+    width: '80%',
   },
   input: {
     marginBottom: 10,
@@ -111,7 +109,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
-    width: '100%',
   },
   roundedButton: {
     backgroundColor: '#53B175',

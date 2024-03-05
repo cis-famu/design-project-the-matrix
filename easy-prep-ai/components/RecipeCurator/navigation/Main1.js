@@ -3,20 +3,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicon from 'react-native-vector-icons';
 
 // Screens 
-import SearchRecipes from './SearchRecipes';
-import GenerateARecipe from './GenerateARecipe'; 
-import UserChat from './UserChat'; 
+import Announcements from './Announcements';
+import SearchRecipes from './SearchRecipes1'; 
 
 
 
 const SEARCH_RECIPES = 'Search'; 
-const GENERATE_RECIPE = 'Generate'; 
-const USER_CHAT = 'Chat';  
+const ANNOUNCEMENTS = 'Announcements'; 
 
 const Tab = createBottomTabNavigator(); 
 
 
-export default function Main() {
+export default function Main1() {
     return (
             <Tab.Navigator
             initialRouteName={SEARCH_RECIPES}
@@ -27,10 +25,8 @@ export default function Main() {
 
                     if(rn == SEARCH_RECIPES) {
                         iconName = focused ? 'Search' : 'search-outline' 
-                    }else if(rn == GENERATE_RECIPE) {
-                        iconName = focused ? GENERATE_RECIPE : 'generate-outline' 
-                    }else if(rn == USER_CHAT) {
-                        iconName = focused ? 'chat-outline' : 'search-outline' 
+                    }else if(rn == ANNOUNCEMENTS) {
+                        iconName = focused ? ANNOUNCEMENTS : 'announcemnts-outline' 
                     }
 
                     return <Ionicon name={iconName} size={size} color={color}/>
@@ -41,8 +37,8 @@ export default function Main() {
             >
 
                 <Tab.Screen name={SEARCH_RECIPES} component={SearchRecipes}/> 
-                <Tab.Screen name={GENERATE_RECIPE} component={GenerateARecipe}/> 
-                <Tab.Screen name={USER_CHAT} component={UserChat}/> 
+                <Tab.Screen name={ANNOUNCEMENTS} component={Announcements} options={{ headerShown: false }}/> 
+                
 
             </Tab.Navigator>
     );
