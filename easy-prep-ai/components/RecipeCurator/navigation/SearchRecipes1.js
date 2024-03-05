@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, TextInputProps, KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
 
 const SearchScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      const recipeSnapshot = await firestore.collection('Recipes').get();
+      const fetchedRecipes = recipeSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setRecipes(fetchedRecipes);
+    };
+
+    fetchRecipes();
+  }, []);
 
   const handleSearch = async () => {
     try {
-      console.log("We got the data") 
-      const response = await axios.get('http://localhost:8080/api/search', 
-      {
+      console.log("We got the search back") 
+      const response = await axios.get('http://localhost:8080/api/search', {
         params: { query: searchQuery },
       });
-  
-      // Handle the response from the server
-      console.log(response.data);
+      setRecipes(response.data); // Update state with fetched recipes
     } catch (error) {
-      // Handle any errors
       console.error(error);
     }
   };

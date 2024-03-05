@@ -8,28 +8,16 @@ const App = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const handleLogin = async () => {
-    // Implement your login logic here (e.g., API call, validation)
-    try {
-      const response = await axios.post('http://localhost:8080/api/login', {
-        email,
-        password,
-      });
-  
-      // Handle the response from the server
-      console.log(response.data);
-  
-      // If the login is successful, navigate to the SearchRecipes screen
-      if (response.data.success) {
-        navigation.navigate('SearchRecipes');
-      }
-    } catch (error) {
-      // Handle any errors
-      console.error(error);
-    }
 
-    console.log('Login attempted with email:', email, 'password:', password);
-  };
+    // Implement your login logic here (e.g., API call, validation)
+  const handleSignIn = () => {
+      signInWithEmailAndPasswordFunc(email, password)
+        .then(userCredentials => {
+          const user = userCredentials.user;
+          console.log('Logged in with:', user.email);
+        })
+        .catch(error => alert(error.message));
+    };
 
   return (
     <View style={styles.container}>
@@ -55,7 +43,7 @@ const App = () => {
             secureTextEntry
             width={300}
           />
-          <RoundedButton title="Login"  onPress={() => navigation.navigate('Main1')} />
+          <RoundedButton title="Login"  onPress={_handleSignIn => navigation.navigate('Main1')}/>
         </View>
       </View>
     </View>

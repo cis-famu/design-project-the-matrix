@@ -19,9 +19,9 @@ import SearchRecipes1 from './components/RecipeCurator/navigation/SearchRecipes1
 import Main1 from './components/RecipeCurator/navigation/Main1.js';
 import RecipeCuratorLogin from './components/RecipeCurator/RecipeCuratorLogin.js';
 import RecipeCuratorSignup from './components/RecipeCurator/RecipeCuratorSignup.js';
-
-
-
+import AdminPage from './components/admin/AdminPage.js'; 
+import SearchUsers from './components/admin/SearchUsers.js'; 
+import firebase from '@firebase/app'
 
 const RootStack = createNativeStackNavigator();
 
@@ -45,6 +45,8 @@ export default function App() {
           <RootStack.Screen name="Main1" component={Main1}/> 
           <RootStack.Screen name="RecipeCuratorLogin" component={RecipeCuratorLogin} /> 
           <RootStack.Screen name="RecipeCuratorSignup" component={RecipeCuratorSignup}/>
+          <RootStack.Screen name="AdminPage" component={AdminPage} /> 
+          <RootStack.Screen name="SearchUsers" component={SearchUsers} />
           <RootStack.Screen name ="Main" component={Main} options={{ headerShown: false }}/> 
         </RootStack.Navigator>
     </NavigationContainer>
