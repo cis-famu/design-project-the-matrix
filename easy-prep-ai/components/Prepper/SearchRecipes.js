@@ -1,5 +1,3 @@
-// RecipeList.js
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
@@ -10,7 +8,15 @@ const RecipeList = () => {
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      const recipeSnapshot = await firestore().collection('Recipes').get();
+      let recipeCollection = firestore().collection('Recipes');
+
+      // Apply search query filter if available
+      if (searchQuery) {
+        recipeCollection = recipeCollection.where('Title', '>=', searchQuery)
+                                           .where('Title', '<=', searchQuery + '\uf8ff');
+      }
+
+      const recipeSnapshot = await recipeCollection.get();
       const fetchedRecipes = recipeSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
@@ -19,16 +25,7 @@ const RecipeList = () => {
     };
 
     fetchRecipes();
-  }, []);
-
-  const handleSearch = async () => {
-    const recipeSnapshot = await firestore().collection('Recipes').where('Title', '==', searchQuery).get();
-    const filteredRecipes = recipeSnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setRecipes(filteredRecipes);
-  };
+  }, [searchQuery]); // Update useEffect dependency to include searchQuery
 
   return (
     <View style={styles.container}>
@@ -37,7 +34,6 @@ const RecipeList = () => {
         placeholder="Search by recipe title"
         value={searchQuery}
         onChangeText={setSearchQuery}
-        onSubmitEditing={handleSearch}
       />
       <FlatList
         data={recipes}

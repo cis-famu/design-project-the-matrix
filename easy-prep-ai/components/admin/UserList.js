@@ -1,16 +1,22 @@
 // UserList.js
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import firestore from '@firebase/app';
 
-const UserList = () => {
+const UserList = ({ searchQuery }) => {
   const [users, setUsers] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const userSnapshot = await firestore().collection('Users').get();
+      let userCollection = firestore().collection('Users');
+      
+      // Apply search query filter if available
+      if (searchQuery) {
+        userCollection = userCollection.where('Username', '==', searchQuery);
+      }
+
+      const userSnapshot = await userCollection.get();
       const fetchedUsers = userSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
@@ -19,26 +25,10 @@ const UserList = () => {
     };
 
     fetchUsers();
-  }, []);
-
-  const handleSearch = async () => {
-    const userSnapshot = await firestore().collection('Users').where('Username', '==', searchQuery).get();
-    const filteredUsers = userSnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setUsers(filteredUsers);
-  };
+  }, [searchQuery]); // Update useEffect dependency to include searchQuery
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Search by username"
-        value={searchQuery}
-        onChangeText={setSearchQuery}
-        onSubmitEditing={handleSearch}
-      />
       <FlatList
         data={users}
         renderItem={({ item }) => (
@@ -58,14 +48,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-  },
-  input: {
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
   },
   userContainer: {
     marginBottom: 10,
