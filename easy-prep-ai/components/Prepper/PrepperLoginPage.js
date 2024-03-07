@@ -2,27 +2,30 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
 import { useNavigation} from '@react-navigation/native';
+import {signUpWithEmailAndPassword } from '../firebase.js'
+// import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+// import firebase from '@firebase/app'
+
+
 
 const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-
-    // Implement your login logic here (e.g., API call, validation)
   const handleSignIn = () => {
-      signInWithEmailAndPasswordFunc(email, password)
-        .then(userCredentials => {
-          const user = userCredentials.user;
-          console.log('Logged in with:', user.email);
-        })
-        .catch(error => alert(error.message));
-    };
+    signInWithEmailAndPasswordFunc(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logged in with:', user.email);
+      })
+      .catch(error => alert(error.message));
+  };
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('./images/background.jpeg')}
+        source={require('./images/LogoEasy.png')}
         style={styles.logo}
       />
       <Text style={styles.title}>Login</Text>
@@ -43,7 +46,7 @@ const App = () => {
             secureTextEntry
             width={300}
           />
-          <RoundedButton title="Login"  onPress={_handleSignIn => navigation.navigate('Main1')}/>
+          <RoundedButton title="Login" onPress={_handleSignIn => navigation.navigate('Main')}/>
         </View>
       </View>
     </View>
@@ -69,8 +72,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     right: 20,
-    width: 350,
-    height: 350,
+    width: 100,
+    height: 100,
     borderRadius: 50,
     resizeMode: 'contain',
     shadowColor: '#000',

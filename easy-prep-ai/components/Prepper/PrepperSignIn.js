@@ -1,50 +1,53 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity,Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import { useNavigation} from '@react-navigation/native';
 
 const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
+  const [username, setUsername] = useState('');
+  const navigation = useNavigation();  
 
 
-    // Implement your login logic here (e.g., API call, validation)
-  const handleSignIn = () => {
-      signInWithEmailAndPasswordFunc(email, password)
+    const handleSignUp = () => {
+      signUpWithEmailAndPassword(email, password, username)
         .then(userCredentials => {
           const user = userCredentials.user;
-          console.log('Logged in with:', user.email);
+          console.log('Registered with:', user.email, user.password, user.username);
         })
         .catch(error => alert(error.message));
     };
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('./images/background.jpeg')}
-        style={styles.logo}
-      />
-      <Text style={styles.title}>Login</Text>
-      <View style={styles.formContainer}>
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            onChangeText={setEmail}
-            value={email}
-            width={300}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            onChangeText={setPassword}
-            value={password}
-            secureTextEntry
-            width={300}
-          />
-          <RoundedButton title="Login"  onPress={_handleSignIn => navigation.navigate('Main1')}/>
-        </View>
+      <Text style={styles.title}>Sign-Up</Text>
+      <Image source={require('./images/LogoEasy.png')}
+      resizeMode='cover'
+      style={styles.logo}
+      ></Image>
+      <View style={styles.form}>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          onChangeText={setEmail}
+          value={email}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          onChangeText={setUsername}
+          value={username}
+          secureTextEntry
+        />
+        <RoundedButton title="Sign-Up"   onPress={_handleSignUp => navigation.navigate('Main')} />
       </View>
     </View>
   );
@@ -58,6 +61,7 @@ const RoundedButton = ({ title, onPress }) => {
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -69,29 +73,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     right: 20,
-    width: 350,
-    height: 350,
+    width: 100,
+    height: 100,
     borderRadius: 50,
     resizeMode: 'contain',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    marginTop: 230,
+    marginTop: 200,
   },
   title: {
     fontSize: 24,
     marginBottom: 20,
   },
-  formContainer: {
-    width: '100%',
-    paddingHorizontal: 20,
-    justifyContent: 'center',
-  },
   form: {
-    width: '100%',
-    paddingHorizontal:20, 
-    justifyContent:'center', 
+    width: '80%',
   },
   input: {
     marginBottom: 10,
@@ -99,7 +96,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
-    width: '100%',
   },
   roundedButton: {
     backgroundColor: '#53B175',
