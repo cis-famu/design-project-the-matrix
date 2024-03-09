@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "prep/src/main/java/edu/famu/prep"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
