@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Button,View} from 'react-native';
+import { StyleSheet, Button,View, Modal} from 'react-native';
 import { useNavigation} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import UserActivation from './components/admin/UserActivation.js';
 import PrepperPage from './components/Prepper/PrepperPage';
 import AdminLogin from './components/admin/AdminLogin';
 import RecipeCuratorPage from './components/RecipeCurator/RecipeCuratorPage.js';
@@ -23,6 +24,7 @@ import AdminPage from './components/admin/AdminPage.js';
 import SearchUsers from './components/admin/SearchUsers.js'; 
 import firebase from '@firebase/app'
 
+
 const RootStack = createNativeStackNavigator();
 
 
@@ -31,6 +33,7 @@ export default function App() {
     <NavigationContainer>
         <RootStack.Navigator>
           <RootStack.Screen name="Home" component={Home} />
+          <RootStack.Screen name="UserActivation" component={UserActivation} /> 
           <RootStack.Screen name="PrepperPage" component={PrepperPage} options={{ headerShown: false }} />
           <RootStack.Screen name="PrepperLoginPage" component={PrepperLoginPage} options={{ headerShown: false }}/>
           <RootStack.Screen name="PrepperSignIn" component={PrepperSignIn} options={{ headerShown: false }}/>
@@ -45,7 +48,8 @@ export default function App() {
           <RootStack.Screen name="Main1" component={Main1}/> 
           <RootStack.Screen name="RecipeCuratorLogin" component={RecipeCuratorLogin} /> 
           <RootStack.Screen name="RecipeCuratorSignup" component={RecipeCuratorSignup}/>
-          <RootStack.Screen name="AdminPage" component={AdminPage} /> 
+          <RootStack.Screen name="AdminPage" component={AdminPage} />
+          <RootStack.Screen name="Announcements" component={Announcements} /> 
           <RootStack.Screen name="SearchUsers" component={SearchUsers} />
           <RootStack.Screen name ="Main" component={Main} options={{ headerShown: false }}/> 
         </RootStack.Navigator>
@@ -69,8 +73,28 @@ function Home() {
         title="Go to Recipe Curator Login"
         onPress={() => navigation.navigate('RecipeCuratorPage')}
       /> 
+      <Button
+        title="User actviation"
+        onPress={() => navigation.navigate('UserActivation')}
+      /> 
     </View>
   );
+}
+
+const showWhatsNew = async () => {
+  const persistedVersion = await AsyncStorage.getItem('@app-version'); 
+  const currentVersion = DeviceInfo.getVersion()
+
+  if(persistedVersion == null) {
+    NavigationContainer.showModal({
+      component: {
+        name:'Announcements', 
+        passProps:{
+          currentVersion, 
+        }
+      }
+    })
+  }
 }
 
 const styles = StyleSheet.create({

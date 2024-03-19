@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
-import { Button, Input, ListItem, Text } from 'react-native-elements';
+import { Button, Input, ListItem, Text, Image } from 'react-native-elements';
+import axios from 'axios';
+import {Configuration, OpenAIApi} from 'openai'; 
+
+
+
 
 const ChatScreen = () => {
-  const [message, setMessage] = React.useState('');
-  const [messages, setMessages] = React.useState([]);
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [recipe, setRecipe] = useState('');
+  const [imageURL, setImageURL] = useState('');
 
-  const sendMessage = () => {
-    setMessages([...messages, { message, sender: 'user' }]);
-    setMessage('');
-  };
 
+  const sendMessage = async () => {
+    setMessages(prevMessages => [...prevMessages, { message, sender: 'user' }]);
+    
+    fetch("https://api.openai.com/v1/chat/completions", {
+      method:"Post",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization": "Bearer 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"
+      },
+      body: JSON.stringify({
+        "messages": [{"role": "user", "content": "recipes"}],
+        "model":"gpt-3.5-turbo",
+      })
+    }).then((responce) => responce.json()).then((data) => {
+      console.log(data) 
+    }) 
+  
+  
+  }
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -23,6 +45,8 @@ const ChatScreen = () => {
           </View>
         ))}
       </ScrollView>
+      {imageURL && <Image source={{ uri: imageURL }} style={{ width: 200, height: 200 }} />}
+      {recipe && <Text>{recipe}</Text>}
       <View style={styles.inputContainer}>
         <Input
           value={message}
@@ -50,7 +74,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20, // Add marginBottom to ensure space between messages and input
+    marginBottom: 20,
   },
   input: {
     flex: 1,

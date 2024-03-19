@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-
+import { getAuth, createUserWithEmailAndPassword ,  initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbDPYtkeXrGdvSEbWq9rjMSKBqRu6e2Jw",
@@ -15,12 +15,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+persistence  = getReactNativePersistence(ReactNativeAsyncStorage);
 
 
 // Function to create a new user with email and password
 const signUpWithEmailAndPassword = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
+
 
 
 // Function to sign in with email and password

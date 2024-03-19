@@ -6,12 +6,14 @@ import Ionicon from 'react-native-vector-icons';
 import SearchRecipes from './SearchRecipes';
 import GenerateARecipe from './GenerateARecipe'; 
 import UserChat from './UserChat'; 
+import Home from './Home'; 
 
 
 
-const SEARCH_RECIPES = 'Search'; 
-const GENERATE_RECIPE = 'Generate'; 
-const USER_CHAT = 'Chat';  
+const SEARCH_RECIPES = 'Search';  // Home 
+const GENERATE_RECIPE = 'Generate'; // Search 
+const USER_CHAT = 'Chat';  // Generate 
+const HOME = 'Home' // Chat 
 
 const Tab = createBottomTabNavigator(); 
 
@@ -19,18 +21,20 @@ const Tab = createBottomTabNavigator();
 export default function Main() {
     return (
             <Tab.Navigator
-            initialRouteName={SEARCH_RECIPES}
+            initialRouteName={HOME}
             screenOptions={({route}) => ({
                 TabBarIcon : ({focused, color, size}) => {
                     let iconName;
                     let rn = route.name;
 
-                    if(rn == SEARCH_RECIPES) {
-                        iconName = focused ? 'Search' : 'search-outline' 
+                    if(rn == HOME) {
+                        iconName = focused ? 'Home' : 'home-outline' 
                     }else if(rn == GENERATE_RECIPE) {
                         iconName = focused ? GENERATE_RECIPE : 'generate-outline' 
-                    }else if(rn == USER_CHAT) {
-                        iconName = focused ? 'chat-outline' : 'search-outline' 
+                    }else if(rn == SEARCH_RECIPES) {
+                        iconName = focused ? 'search-outline' : 'search-outline' 
+                    }else if(rn == USER_CHAT){
+                        iconName = focused ? 'Chat' : 'chat-outline' 
                     }
 
                     return <Ionicon name={iconName} size={size} color={color}/>
@@ -43,6 +47,7 @@ export default function Main() {
                 <Tab.Screen name={SEARCH_RECIPES} component={SearchRecipes}/> 
                 <Tab.Screen name={GENERATE_RECIPE} component={GenerateARecipe}/> 
                 <Tab.Screen name={USER_CHAT} component={UserChat}/> 
+                <Tab.Screen name={HOME} component={Home}/> 
 
             </Tab.Navigator>
     );
