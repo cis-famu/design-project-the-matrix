@@ -13,26 +13,7 @@ const ChatScreen = () => {
   const [recipe, setRecipe] = useState('');
   const [imageURL, setImageURL] = useState('');
 
-
-  const sendMessage = async () => {
-    setMessages(prevMessages => [...prevMessages, { message, sender: 'user' }]);
-    
-    fetch("https://api.openai.com/v1/chat/completions", {
-      method:"Post",
-      headers:{
-        "Content-Type":"application/json",
-        "Authorization": "Bearer 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"
-      },
-      body: JSON.stringify({
-        "messages": [{"role": "user", "content": "recipes"}],
-        "model":"gpt-3.5-turbo",
-      })
-    }).then((responce) => responce.json()).then((data) => {
-      console.log(data) 
-    }) 
   
-  
-  }
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
