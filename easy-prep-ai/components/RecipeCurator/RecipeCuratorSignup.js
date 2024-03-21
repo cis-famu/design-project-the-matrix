@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet,TouchableOpacity,Image} from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {createUserWithEmailAndPassword, db } from '../../firebase';
 import {doc,setDoc} from 'firebase/firestore';
@@ -8,7 +8,7 @@ const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const navigation = useNavigation();  
+  const navigation = useNavigation();
 
   const signUpWithEmailAndPassword = async (email, password, username) => {
     try {
@@ -47,13 +47,13 @@ const App = () => {
       .catch(error => alert(error.message));
   };
 
-
   return (
     <View style={styles.container}>
-      <Image source={require('./images/background.jpeg')}
-      resizeMode='cover'
-      style={styles.logo}
-      ></Image>
+      <Image
+        source={require('./images/background.jpeg')}
+        resizeMode='cover'
+        style={styles.backgroundImage}
+      />
       <Text style={styles.title}>Sign-Up</Text>
       <View style={styles.form}>
         <TextInput
@@ -90,27 +90,20 @@ const RoundedButton = ({ title, onPress }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white', 
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
+  backgroundImage: {
     position: 'absolute',
-    top: 20,
-    right: 20,
-    width: 350,
-    height: 350,
-    borderRadius: 50,
-    resizeMode: 'contain',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    marginTop: 200,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: -1,
   },
   title: {
     fontSize: 24,
