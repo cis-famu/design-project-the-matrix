@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert, Text } from 'react-native';
 
 const AdminAnnouncement = () => {
   const [announcement, setAnnouncement] = useState('');
+  const [announcements, setAnnouncements] = useState([]);
 
-  const postAnnouncement = async () => {
+  const postAnnouncement = () => {
     if (!announcement.trim()) {
       Alert.alert('Please enter an announcement');
       return;
     }
 
-    try {
-      await firestore().collection('Announcements').add({
-        text: announcement,
-        createdAt: firestore.FieldValue.serverTimestamp(),
-      });
-      Alert.alert('Announcement posted successfully');
-      setAnnouncement(''); // Clear the input after posting
-    } catch (error) {
-      console.log(error);
-      Alert.alert('Error posting announcement');
-    }
+    setAnnouncements(prevAnnouncements => [
+      ...prevAnnouncements,
+      { id: Math.random().toString(), text: announcement },
+    ]);
+    setAnnouncement(''); // Clear the input after posting
   };
 
   return (
@@ -33,6 +28,11 @@ const AdminAnnouncement = () => {
         multiline
       />
       <Button title="Post Announcement" onPress={postAnnouncement} />
+      {announcements.map(item => (
+        <View key={item.id} style={styles.announcementContainer}>
+          <Text style={styles.announcementText}>{item.text}</Text>
+        </View>
+      ))}
     </View>
   );
 };
@@ -44,12 +44,23 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#ccc',
     borderRadius: 5,
     padding: 10,
-    minHeight: 100, // Adjust based on your needs
-    textAlignVertical: 'top', // Align text to top for multiline input
+    minHeight: 100,
+    textAlignVertical: 'top',
+  },
+  announcementContainer: {
+    marginTop: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+  },
+  announcementText: {
+    fontSize: 16,
   },
 });
 
 export default AdminAnnouncement;
+
