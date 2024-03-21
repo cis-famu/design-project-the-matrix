@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
 import { useNavigation} from '@react-navigation/native';
-import {signUpWithEmailAndPassword } from '../firebase.js'
-// import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-// import firebase from '@firebase/app'
+import {signUpWithEmailAndPassword,db} from '../../firebase'
+import {doc,setDoc} from 'firebase/firestore'
 
 
 

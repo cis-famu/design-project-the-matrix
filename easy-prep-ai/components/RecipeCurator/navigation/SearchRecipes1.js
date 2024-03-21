@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, TextInputProps, KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
+import {doc,setDoc} from 'firebase/firestore'
+
 
 const SearchScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
