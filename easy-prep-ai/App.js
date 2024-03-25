@@ -73,10 +73,6 @@ function Home() {
         title="Go to Recipe Curator Login"
         onPress={() => navigation.navigate('RecipeCuratorPage')}
       /> 
-      <Button
-        title="User actviation"
-        onPress={() => navigation.navigate('UserActivation')}
-      /> 
     </View>
   );
 }

@@ -38,7 +38,7 @@ const App = () => {
           value={password}
           secureTextEntry
         />
-        <Button title="Login" onPress={_handleSignIn => navigation.navigate('SearchUsers')}/>
+        <Button title="Login" onPress={_handleSignIn => navigation.navigate('UserActivation')}/>
       </View>
     </View>
   );

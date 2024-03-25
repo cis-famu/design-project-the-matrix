@@ -1,82 +1,116 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, TextInputProps, KeyboardAvoidingView } from 'react-native';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
+import { db } from '../../firebase';
+import { getDocs, collection } from 'firebase/firestore';
 
-const SearchScreen = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+const SearchUsers = () => {
+  const [users, setUsers] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [displayedUsers, setDisplayedUsers] = useState([]);
 
-  const handleSearch = async () => {
-    try {
-      console.log("We got the data") 
-      const response = await axios.get('http://localhost:8080/api/search', 
-      {
-        params: { query: searchQuery },
-      });
-  
-      // Handle the response from the server
-      console.log(response.data);
-    } catch (error) {
-      // Handle any errors
-      console.error(error);
-    }
+  useEffect(() => {
+    const getUsers = async () => {
+      const querySnapshot = await getDocs(collection(db, 'Users'));
+      const usersData = querySnapshot.docs.map((docSnapshot) => ({
+        id: docSnapshot.id,
+        ...docSnapshot.data(),
+      }));
+      setUsers(usersData);
+      setDisplayedUsers(usersData);
+    };
+    getUsers();
+  }, []);
+
+  const handleSearch = () => {
+    const filteredUsers = users.filter((user) =>
+      user.Username.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setDisplayedUsers(filteredUsers);
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-      <View style={styles.searchBar}>
+    <View style={styles.container}>
+      <View style={styles.searchContainer}>
         <TextInput
-          style={styles.searchInput}
-          placeholder="Search"
-          onChangeText={setSearchQuery}
-          value={searchQuery}
-          underlineColorAndroid="transparent"
-          placeholderTextColor="#9b9b9b"
+          style={styles.searchBar}
+          placeholder="Search users"
+          onChangeText={setSearchText}
+          value={searchText}
         />
-        <TouchableOpacity onPress={handleSearch} style={styles.searchButton}>
-          <Text style={styles.searchIcon}>Search</Text>
+        <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+          <Text style={styles.buttonText}>Search</Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+      <FlatList
+        data={displayedUsers}
+        renderItem={({ item }) => (
+          <View style={styles.userCard}>
+            <Text style={styles.userText}>{item.Username}</Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 32, // Add padding at the top
-    justifyContent: 'space-between', // Move the search bar down
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    paddingTop: 20,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
   },
   searchBar: {
-    flexDirection: 'row',
-    width: '100%',
-    height: 50,
-    backgroundColor: '#f1f1f1',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-  },
-  searchInput: {
     flex: 1,
-    height: '100%',
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 20,
     paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 5,
-    backgroundColor: '#fff',
+    marginRight: 10,
   },
   searchButton: {
-    width: 60,
-    height: '100%',
-    borderRadius: 5,
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#007BFF',
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  searchIcon: {
-    color: '#fff',
-    fontSize: 18,
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
+  userCard: {
+    backgroundColor: '#F9F9F9',
+    padding: 15,
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  userText: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
-export default SearchScreen;
+export default SearchUsers;

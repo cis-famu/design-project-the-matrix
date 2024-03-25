@@ -3,6 +3,8 @@ import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform,Text, Imag
 import { Button, Input, ListItem,} from 'react-native-elements';
 import axios from 'axios';
 import {Configuration, OpenAIApi} from 'openai'; 
+import { db } from '../../../firebase';
+import { doc, getDocs, collection, updateDoc } from 'firebase/firestore';
 
 
 const ChatScreen = () => {
@@ -29,9 +31,14 @@ const ChatScreen = () => {
     const data = await response.json();
 
     if (data.choices && data.choices.length > 0) {
-      const reply = data.choices[0].message.content;
-      setMessages(prevMessages => [...prevMessages, { message: reply, sender: 'ai' }]);
-      fetchImage(message); // Call fetchImage here with the original message
+      const aiReply = data.choices[0].message.content;
+      setMessages(prevMessages => [...prevMessages, { message: aiReply, sender: 'ai' }]);
+      
+      // Save the user message and AI reply to Firebase
+      await saveToFirebase(aiReply);
+      
+      fetchImage(message);
+
     }
   };
 
@@ -57,11 +64,9 @@ const ChatScreen = () => {
 
   const saveToFirebase = async (aiReply) => {
     try {
-      const db = firebase.firestore();
       await db.collection('Recipe').add({
         userMessage: message,
-        aiReply,
-        ...userData, // Spread user data here
+        aiReply: aiReply,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
       console.log('Data saved to Firestore successfully!');

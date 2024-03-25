@@ -6,9 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  ActivityIndicator
 } from 'react-native';
 import { db } from '../../firebase';
-import { doc, getDocs, collection, updateDoc } from 'firebase/firestore';
+import { doc, getDocs, collection, updateDoc} from 'firebase/firestore';
 
 const UserActivation = () => {
   const [users, setUsers] = useState([]);
@@ -79,7 +80,7 @@ const UserActivation = () => {
         data={displayedUsers}
         renderItem={({ item }) => (
           <View style={styles.userContainer}>
-            <Text style={styles.userText}>{item.username}</Text>
+            <Text style={styles.userText}>{item.Username}</Text>
             <View style={styles.buttonsContainer}>
               <TouchableOpacity
                 style={styles.roundedButton}
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   userContainer: {
-    flexDirection: 'column',
+    flexDirection: 'center',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
@@ -163,6 +164,11 @@ const styles = StyleSheet.create({
     width: '80%',
     marginTop: 500,
     marginLeft:40, 
+  },
+  buttonsContainer: {
+    flexDirection: 'row', // Align items horizontally
+    justifyContent: 'center', // Center the buttons horizontally
+    alignItems: 'center', // Center the buttons vertically
   },
 }); 
 
