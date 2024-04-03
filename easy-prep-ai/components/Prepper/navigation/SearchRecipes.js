@@ -9,30 +9,31 @@ import {
 } from 'react-native';
 import { db } from '../../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
+import FloatingButton from './FloatingButton';
 
 const SearchUsers = () => {
-  const [users, setUsers] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [searchText, setSearchText] = useState('');
-  const [displayedUsers, setDisplayedUsers] = useState([]);
+  const [displayedRecipes, setDisplayedRecipes] = useState([]);
 
   useEffect(() => {
-    const getUsers = async () => {
+    const fetchRecipes = async () => {
       const querySnapshot = await getDocs(collection(db, 'Recipe'));
-      const usersData = querySnapshot.docs.map((docSnapshot) => ({
+      const recipesData = querySnapshot.docs.map(docSnapshot => ({
         id: docSnapshot.id,
         ...docSnapshot.data(),
       }));
-      setUsers(usersData);
-      setDisplayedUsers(usersData);
+      setRecipes(recipesData);
+      setDisplayedRecipes(recipesData);
     };
-    getUsers();
+    fetchRecipes();
   }, []);
 
   const handleSearch = () => {
-    const filteredUsers = users.filter((user) =>
-      user.Title?.toLowerCase().includes(searchText.toLowerCase())
+    const filteredRecipes = recipes.filter(recipe =>
+      recipe.Title?.toLowerCase().includes(searchText.toLowerCase())
     );
-    setDisplayedUsers(filteredUsers);
+    setDisplayedRecipes(filteredRecipes);
   };
 
   const handleInputChange = (text) => {
@@ -53,22 +54,24 @@ const SearchUsers = () => {
         </TouchableOpacity>
       </View>
       <FlatList
-        data={displayedUsers}
+        data={displayedRecipes}
         renderItem={({ item }) => (
-          <View style={styles.userCard}>
-            <Text style={styles.userText}>{item.Username}</Text>
+          <View style={styles.recipeCard}>
+            <Text style={styles.recipeText}>{item.Title}</Text>
           </View>
         )}
         keyExtractor={(item) => item.id}
       />
+      <FloatingButton/>
     </View>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF', // Light peach background for warmth
     paddingHorizontal: 10,
     paddingTop: 20,
   },
@@ -80,42 +83,49 @@ const styles = StyleSheet.create({
   searchBar: {
     flex: 1,
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#DADADA', // Soft border color
     borderWidth: 1,
-    borderRadius: 20,
-    paddingHorizontal: 10,
+    borderRadius: 25, // Rounded corners for the search bar
+    paddingHorizontal: 15,
+    backgroundColor: '#FFFFFF', // White background for the search bar
+    fontSize: 16, // Slightly larger font for readability
     marginRight: 10,
   },
   searchButton: {
-    backgroundColor: '#53B175',
-    borderRadius: 20,
+    backgroundColor: '#53B175', // Vibrant button color for contrast
+    borderRadius: 25,
     paddingVertical: 10,
     paddingHorizontal: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 3, // Slight elevation for the button
   },
   buttonText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
+    fontSize: 16, // Ensuring the button text is bold and readable
   },
-  userCard: {
-    backgroundColor: '#F9F9F9',
-    padding: 15,
-    borderRadius: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
+  recipeCard: {
+    backgroundColor: '#FFFFFF',
+    padding: 20,
+    borderRadius: 15,
+    flexDirection: 'column', // Changed to column for better layout of additional info
+    alignItems: 'flex-start', // Align items to the start
+    marginBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
+    elevation: 5, // More pronounced shadow for a subtle 3D effect
+    marginTop: 10,
   },
-  userText: {
-    fontSize: 16,
+  recipeText: {
+    fontSize: 18,
     fontWeight: 'bold',
-    color:'#FFFFFF'
+    color: '#333333', // Darker color for text for better readability
+    marginBottom: 5, // Spacing between title and potential description
   },
 });
+
 
 export default SearchUsers;

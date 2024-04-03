@@ -2,19 +2,50 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
 import { useNavigation} from '@react-navigation/native';
+import {db,signInWithEmailAndPassword,auth} from '../../firebase'
+import {doc,setDoc,getDoc} from 'firebase/firestore'
 
 const App = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
+    // Make sure to use signInWithEmailAndPassword for signing in
+    const LoginInWithEmailAndPassword = async (email, password) => {
+      try {
+        const userCredential = await signInWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+        const userRef = doc(db, "Users", user.uid);
+        const userDoc = await getDoc(userRef);
+
+
+        if (userDoc.exists() && userDoc.data().ActiveStatus) {
+          navigation.navigate('Main1');
+      } else {
+          alert("Your account is not active. Please contact support.");
+      }
+      } catch(error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            // Handle errors here, including incorrect email and password
+            if (errorCode === 'auth/wrong-password' || errorCode === 'auth/user-not-found') {
+                alert('Incorrect email or password.');
+            } else {
+                // For other errors, you might want to handle them differently
+                alert(errorMessage);
+            }
+    }
+  }
+
 
     // Implement your login logic here (e.g., API call, validation)
-  const handleSignIn = () => {
-      signInWithEmailAndPasswordFunc(email, password)
+    const handleSignIn = () => {
+      LoginInWithEmailAndPassword(email, password)
         .then(userCredentials => {
           const user = userCredentials.user;
-          console.log('Logged in with:', user.email);
+          console.log('Sign In with', user.email, user.password);
+          navigation.navigate('Main1');
         })
         .catch(error => alert(error.message));
     };
@@ -43,7 +74,7 @@ const App = () => {
             secureTextEntry
             width={300}
           />
-          <RoundedButton title="Login"  onPress={_handleSignIn => navigation.navigate('Main1')}/>
+          <RoundedButton title="Login"  onPress={() => LoginInWithEmailAndPassword(email, password)}/>
         </View>
       </View>
     </View>

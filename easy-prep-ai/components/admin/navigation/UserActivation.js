@@ -8,7 +8,7 @@ import {
   TextInput,
   ActivityIndicator
 } from 'react-native';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { doc, getDocs, collection, updateDoc} from 'firebase/firestore';
 
 const UserActivation = () => {

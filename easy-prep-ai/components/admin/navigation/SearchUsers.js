@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 import { getDocs, collection } from 'firebase/firestore';
 
 const SearchUsers = () => {
